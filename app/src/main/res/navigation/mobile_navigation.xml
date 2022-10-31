@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_book">
+
+    <fragment
+        android:id="@+id/navigation_book"
+        android:name="com.example.classdb.ui.Book.BookFragment"
+        android:label="@string/title_book"
+        tools:layout="@layout/fragment_book" >
+        <action
+            android:id="@+id/action_navigation_book_to_navigation_book_detail"
+            app:destination="@id/navigation_book_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_book_detail"
+        android:name="com.example.classdb.ui.Book.BookDetailFragment"
+        android:label="@string/title_book"
+        tools:layout="@layout/fragment_book_detail" >
+        <action
+            android:id="@+id/action_navigation_book_detail_to_navigation_book"
+            app:destination="@id/navigation_book" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_statistic"
+        android:name="com.example.classdb.ui.Statistic.StatisticFragment"
+        android:label="@string/title_statistic"
+        tools:layout="@layout/fragment_statistic" />
+
+    <fragment
+        android:id="@+id/navigation_mypage"
+        android:name="com.example.classdb.ui.Mypage.MypageFragment"
+        android:label="@string/title_mypage"
+        tools:layout="@layout/fragment_mypage" />
+</navigation>
