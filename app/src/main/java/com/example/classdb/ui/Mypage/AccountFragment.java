@@ -1,4 +1,4 @@
-package com.example.classdb;
+package com.example.classdb.ui.Mypage;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.classdb.R;
 
 /**
  * A simple {@link Fragment} subclass.
