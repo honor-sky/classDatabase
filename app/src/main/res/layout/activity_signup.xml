@@ -103,6 +103,7 @@
                 android:ems="10"
                 android:hint="전화번호 (010-1234-5678)"
                 android:inputType="phone"
+                android:maxLength="13"
                 android:text=""
                 tools:ignore="TouchTargetSizeCheck" />
 

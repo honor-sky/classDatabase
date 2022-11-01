@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.classdb.ui.Book.BookDetailFragment;
+
 public class AddinfoActivity extends AppCompatActivity {
     TextView back;
     EditText Price, Usage;
@@ -41,6 +43,7 @@ public class AddinfoActivity extends AppCompatActivity {
 
 //카테고리 항목
         Spinner spinner = findViewById(R.id.spinner);
+        String category = spinner.getSelectedItem().toString();
 
         ArrayAdapter monthAdapter = ArrayAdapter.createFromResource(this, R.array.usage, android.R.layout.simple_spinner_dropdown_item);
         monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -50,10 +53,10 @@ public class AddinfoActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) { }
         });
+
 
         save = findViewById(R.id.button);
         save.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +64,7 @@ public class AddinfoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String price = Price.getText().toString();
 
-                Intent intent = new Intent(AddinfoActivity.this, MainActivity.class);
+                Intent intent = new Intent(AddinfoActivity.this, BookDetailFragment.class);
                 startActivity(intent);
             }
         });

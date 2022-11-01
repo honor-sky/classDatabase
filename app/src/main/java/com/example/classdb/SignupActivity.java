@@ -1,8 +1,12 @@
 package com.example.classdb;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,6 +23,9 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+
+
+
         back = findViewById(R.id.backlog);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +41,16 @@ public class SignupActivity extends AppCompatActivity {
         pw2=findViewById(R.id.signPW2);
         birth=findViewById(R.id.signBirth);
         phone=findViewById(R.id.phoneNum);
+        phone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                phone.requestFocus();
+                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.showSoftInput(phone, 0);
+                phone.setSelection(phone.length());
+            }
+        }, 100);
 
 
         submit = findViewById(R.id.signupbutton);
