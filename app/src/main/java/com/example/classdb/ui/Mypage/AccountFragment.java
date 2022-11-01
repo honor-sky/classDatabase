@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import com.example.classdb.R;
 import com.example.classdb.databinding.FragmentAccountBinding;
@@ -74,7 +75,8 @@ public class AccountFragment extends Fragment {
 
         //계좌 정보 리스트 가져옴
         //리스트의 크기가 0이 아니면 계좌 정보 그려줌
-        LinearLayout layout = (LinearLayout)fragmentAccountBinding.accountBoxLayoutContainer; //버튼 레이아웃을 담을 레이아웃
+        ListView layout = (ListView)fragmentAccountBinding.accountBoxLayoutContainer; //버튼 레이아웃을 담을 레이아웃
+
         for(int i=0;i<3;i++){
             AccountBoxLayout box_layout = new AccountBoxLayout(getContext());//버튼 레이아웃 생성
             layout.addView(box_layout);
@@ -85,6 +87,9 @@ public class AccountFragment extends Fragment {
         AddButtonLayout btn_layout = new AddButtonLayout(getContext());//버튼 레이아웃 생성
         //LinearLayout layout = (LinearLayout)fragmentAccountBinding.accountBoxLayoutContainer; //버튼 레이아웃을 담을 레이아웃
         layout.addView(btn_layout);
-        return inflater.inflate(R.layout.fragment_account, container, false);
+
+
+        //return inflater.inflate(R.layout.fragment_account, container, false);
+        return fragmentAccountBinding.getRoot();
     }
 }
