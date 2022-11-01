@@ -31,13 +31,16 @@
         android:layout_marginTop="20dp"
         android:orientation="vertical">
 
-        <EditText
+        <TextView
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="10dp"
             android:ems="10"
             android:inputType="date"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:background="@drawable/underline_inputtext"
             android:text="@string/Autodate" />
 
         <EditText
@@ -47,6 +50,7 @@
             android:layout_marginBottom="10dp"
             android:ems="10"
             android:hint="@string/hintprice"
+
             android:inputType="number" />
 
         <EditText
