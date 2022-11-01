@@ -7,8 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.example.classdb.R;
+import com.example.classdb.databinding.FragmentAccountBinding;
+import com.example.classdb.databinding.FragmentGoalBinding;
+
+import java.lang.reflect.Array;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +22,9 @@ import com.example.classdb.R;
  * create an instance of this fragment.
  */
 public class AccountFragment extends Fragment {
+
+    private FragmentAccountBinding fragmentAccountBinding;
+    //private Array<String>
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +70,18 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        fragmentAccountBinding = FragmentAccountBinding.inflate(inflater);
+
+        //계좌 정보 리스트 가져옴
+        //리스트의 크기가 0이 아니면 계좌 정보 그려줌
+        for(int i=0;i<3;i++){
+
+        }
+
+        //계좌 추가 버튼 달기
+        AddButtonLayout btn_layout = new AddButtonLayout(getContext());//버튼 레이아웃 생성
+        LinearLayout layout = (LinearLayout)fragmentAccountBinding.addButtonLayoutContainer; //버튼 레이아웃을 담을 레이아웃
+        layout.addView(btn_layout);
         return inflater.inflate(R.layout.fragment_account, container, false);
     }
 }
