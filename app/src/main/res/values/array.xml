@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="usage">
+        <item>식비</item>
+        <item>문화생활비</item>
+        <item>의류비</item>
+        <item>생활비</item>
+        <item>공과금</item>
+        <item>기타</item>
+    </string-array>
+</resources>
