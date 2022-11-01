@@ -47,7 +47,7 @@ public class SignupActivity extends AppCompatActivity {
                 String user_birth = birth.getText().toString();
                 String user_phone = phone.getText().toString();
 
-                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                 startActivity(intent);
 
             }
