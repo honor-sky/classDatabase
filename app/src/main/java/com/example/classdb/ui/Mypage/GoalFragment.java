@@ -7,20 +7,26 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.example.classdb.R;
+import com.example.classdb.databinding.FragmentGoalBinding;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link GoalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class GoalFragment extends Fragment {
+
+    private FragmentGoalBinding fragmentGoalBinding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private boolean isGoal;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -62,6 +68,19 @@ public class GoalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_goal, container, false);
+        fragmentGoalBinding = FragmentGoalBinding.inflate(inflater);
+
+        isGoal=false;
+        if(!isGoal){ //목표 설정 안 되어있는 경우
+            AddButtonLayout btn_layout = new AddButtonLayout(getContext());//버튼 레이아웃 생성
+            FrameLayout layout = (FrameLayout)fragmentGoalBinding.addButtonLayoutContainer; //버튼 레이아웃을 담을 레이아웃
+            layout.addView(btn_layout);
+        }else{      //목표 설정 되어 있는 경우
+
+        }
+
+        //return inflater.inflate(R.layout.fragment_goal, container, false);
+        return fragmentGoalBinding.getRoot();
+
     }
 }

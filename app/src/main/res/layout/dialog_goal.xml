@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/roundsquare_layout"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/cancle_btn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="start"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:text="X"
+        android:textSize="20dp"
+        android:background="#0000ffff"/>
+
+    <TextView
+        android:id="@+id/Title_goal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="목표 등록"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="true"
+        app:boxStrokeErrorColor="#FF4F28"
+        app:errorTextColor="#FF4F28">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/goal_period"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="목표 달성 기간"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="true"
+        app:boxStrokeErrorColor="#FF4F28"
+        app:errorTextColor="#FF4F28">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/goal_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="목표 소비 금액"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/button_register_goal"
+        android:layout_width="80dp"
+        android:layout_height="37dp"
+        android:background="@drawable/roundsquare_button"
+        android:text="등록"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+</LinearLayout>
