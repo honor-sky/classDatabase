@@ -1,12 +1,16 @@
 package com.example.classdb.ui.Mypage;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.example.classdb.R;
@@ -70,17 +74,70 @@ public class GoalFragment extends Fragment {
         // Inflate the layout for this fragment
         fragmentGoalBinding = FragmentGoalBinding.inflate(inflater);
 
-        isGoal=false;
-        if(!isGoal){ //목표 설정 안 되어있는 경우
-            AddButtonLayout btn_layout = new AddButtonLayout(getContext());//버튼 레이아웃 생성
-            FrameLayout layout = (FrameLayout)fragmentGoalBinding.addButtonLayoutContainer; //버튼 레이아웃을 담을 레이아웃
-            layout.addView(btn_layout);
-        }else{      //목표 설정 되어 있는 경우
+        isGoal=true;
+        setLayout(isGoal);
 
-        }
+        //삭제 버튼 클릭시 db에서 목표 삭제
+        fragmentGoalBinding.cancleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //db 목표 삭제
+                //새로고침
+                isGoal = false;
+                setLayout(isGoal);
+            }
+        });
+        fragmentGoalBinding.addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GoalDialog dialog = new GoalDialog(view.getContext());
+                dialog.callFunction();
+
+                dialog.register_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //DB로 등록 정보 넘어감
+                        //성공여부 Toast로 제공
+                        dialog.dismiss();
+                        //변화된 정보 화면에 재구성(현재 프래그먼트에 정보 전달)
+                        setLayout(true);
+                    }
+                });
+                dialog.cancle_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        setLayout(false);
+                    }
+                });
+
+            }
+        });
 
         //return inflater.inflate(R.layout.fragment_goal, container, false);
         return fragmentGoalBinding.getRoot();
 
     }
+
+    private void setLayout(boolean isGoal){
+        //isGoal=true;
+        if(!isGoal){ //목표 설정 안 되어있는 경우
+            AddButtonLayout btn_layout = new AddButtonLayout(getContext());//버튼 레이아웃 생성
+            FrameLayout layout = (FrameLayout)fragmentGoalBinding.addButtonLayoutContainer; //버튼 레이아웃을 담을 레이아웃
+            layout.addView(btn_layout);
+            fragmentGoalBinding.addButton.setVisibility(fragmentGoalBinding.addButton.VISIBLE);
+            fragmentGoalBinding.cancleButton.setVisibility(fragmentGoalBinding.cancleButton.GONE); //삭제 버튼 없애기
+
+        }else{      //목표 설정 되어 있는 경우
+
+            GoalBoxLayout goal_box = new GoalBoxLayout(getContext());
+            FrameLayout layout = (FrameLayout)fragmentGoalBinding.addButtonLayoutContainer; //버튼 레이아웃을 담을 레이아웃
+            layout.addView(goal_box);
+            fragmentGoalBinding.addButton.setVisibility(fragmentGoalBinding.addButton.GONE);
+            fragmentGoalBinding.cancleButton.setVisibility(fragmentGoalBinding.cancleButton.VISIBLE); //삭제 버튼 보이게
+
+        }
+    }
+
+
 }
