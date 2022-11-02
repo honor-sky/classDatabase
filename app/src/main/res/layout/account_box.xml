@@ -45,19 +45,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="98dp"
                 android:layout_marginTop="78dp"
-                android:text="잔액"
+                android:text="잔액   xxxxxxxx원"
                 android:textSize="20dp"
                 android:textColor="@color/black"/>
 
-            <TextView
-                android:id="@+id/textInput_Money"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="150dp"
-                android:layout_marginTop="78dp"
-                android:text="12,000,000 (원) "
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/textInput_bank"
@@ -73,7 +64,7 @@
                 android:id="@+id/textInput_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
+                android:layout_marginStart="17dp"
                 android:layout_marginTop="70dp"
                 android:text="(체크)"
                 android:textSize="20dp"

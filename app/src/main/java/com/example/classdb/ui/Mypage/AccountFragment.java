@@ -1,5 +1,6 @@
 package com.example.classdb.ui.Mypage;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -16,6 +18,7 @@ import com.example.classdb.databinding.FragmentAccountBinding;
 import com.example.classdb.databinding.FragmentGoalBinding;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +28,7 @@ import java.lang.reflect.Array;
 public class AccountFragment extends Fragment {
 
     private FragmentAccountBinding fragmentAccountBinding;
-    //private Array<String>
+    private ArrayList<AccountBoxLayout> items = new ArrayList<AccountBoxLayout>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,24 +75,43 @@ public class AccountFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentAccountBinding = FragmentAccountBinding.inflate(inflater);
+        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.account_box, items) ;
 
         //계좌 정보 리스트 가져옴
         //리스트의 크기가 0이 아니면 계좌 정보 그려줌
         ListView layout = (ListView)fragmentAccountBinding.accountBoxLayoutContainer; //버튼 레이아웃을 담을 레이아웃
+        layout.setAdapter(adapter);
 
         for(int i=0;i<3;i++){
             AccountBoxLayout box_layout = new AccountBoxLayout(getContext());//버튼 레이아웃 생성
-            layout.addView(box_layout);
+            items.add(box_layout);
+            adapter.notifyDataSetChanged();
+            //layout.addView(box_layout);
 
         }
 
         //계좌 추가 버튼 달기
-        AddButtonLayout btn_layout = new AddButtonLayout(getContext());//버튼 레이아웃 생성
+        //AddButtonLayout btn_layout = new AddButtonLayout(getContext());//버튼 레이아웃 생성
+        //items.add()
         //LinearLayout layout = (LinearLayout)fragmentAccountBinding.accountBoxLayoutContainer; //버튼 레이아웃을 담을 레이아웃
-        layout.addView(btn_layout);
+        //layout.addView(btn_layout);
 
 
         //return inflater.inflate(R.layout.fragment_account, container, false);
         return fragmentAccountBinding.getRoot();
+    }
+
+    class MyAdapter extends ArrayList<AccountBoxLayout>{
+        Context context;
+        String head[];
+        String bank[];
+        String type[];
+        String money[];
+        String accountNumber[];
+
+        MyAdapter(Context con,String head[],String bank[],String type[],Double money[],String accountNumber[]){
+            //super(con, R.id.head_mark,R.id.textInput_bank,R.id.textInput_type,R.id.textView_Money,R.id.textInput_accountNumber);
+        }
+
     }
 }
