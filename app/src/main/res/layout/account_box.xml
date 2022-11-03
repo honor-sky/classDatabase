@@ -2,8 +2,7 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/roundsquare_layout">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,61 +13,63 @@
             android:layout_height="121dp"
             android:layout_weight="0.9">
 
-
             <Button
-                android:id="@+id/head_mark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/select_radiobutton" />
+                android:id="@+id/button2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/circle"
+                android:layout_gravity="center"/>
         </FrameLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="121dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="0.1"
             android:background="@drawable/roundsquare_layout">
 
             <TextView
-                android:id="@+id/textInput_accountNumber"
-                android:layout_width="250dp"
+                android:id="@+id/accountNumber"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="90dp"
                 android:layout_marginTop="28dp"
                 android:background="@drawable/underline_inputtext"
-                android:textSize="30dp"
+                android:text="1002-761-xxxx"
                 android:textColor="@color/black"
-                android:text="1002-761-xxxx" />
+                android:textSize="30dp" />
 
             <TextView
-                android:id="@+id/textView_Money"
+                android:id="@+id/money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="98dp"
                 android:layout_marginTop="78dp"
                 android:text="잔액   xxxxxxxx원"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
 
             <TextView
-                android:id="@+id/textInput_bank"
+                android:id="@+id/bank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="30dp"
                 android:text="우리"
-                android:textSize="30dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="30dp" />
 
             <TextView
-                android:id="@+id/textInput_type"
+                android:id="@+id/type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="70dp"
                 android:text="(체크)"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
         </FrameLayout>
     </LinearLayout>

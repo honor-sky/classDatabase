@@ -3,6 +3,8 @@ package com.example.classdb.ui.Mypage;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.classdb.R;
 import com.example.classdb.databinding.FragmentAccountBinding;
@@ -19,6 +22,7 @@ import com.example.classdb.databinding.FragmentGoalBinding;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,7 +32,7 @@ import java.util.ArrayList;
 public class AccountFragment extends Fragment {
 
     private FragmentAccountBinding fragmentAccountBinding;
-    private ArrayList<AccountBoxLayout> items = new ArrayList<AccountBoxLayout>();
+    private ArrayList<Object> items = new ArrayList<Object>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,43 +79,72 @@ public class AccountFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentAccountBinding = FragmentAccountBinding.inflate(inflater);
-        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.account_box, items) ;
-
-        //계좌 정보 리스트 가져옴
-        //리스트의 크기가 0이 아니면 계좌 정보 그려줌
-        ListView layout = (ListView)fragmentAccountBinding.accountBoxLayoutContainer; //버튼 레이아웃을 담을 레이아웃
-        layout.setAdapter(adapter);
 
         for(int i=0;i<3;i++){
-            AccountBoxLayout box_layout = new AccountBoxLayout(getContext());//버튼 레이아웃 생성
-            items.add(box_layout);
-            adapter.notifyDataSetChanged();
-            //layout.addView(box_layout);
-
+            items.add(new AccountBoxLayout(getContext()));
         }
+        items.add(new AddButtonLayout(getContext())); //계좌 추가 버튼
 
-        //계좌 추가 버튼 달기
-        //AddButtonLayout btn_layout = new AddButtonLayout(getContext());//버튼 레이아웃 생성
-        //items.add()
-        //LinearLayout layout = (LinearLayout)fragmentAccountBinding.accountBoxLayoutContainer; //버튼 레이아웃을 담을 레이아웃
-        //layout.addView(btn_layout);
+        ListView layout = (ListView)fragmentAccountBinding.list; //버튼 레이아웃을 담을 레이아웃
+        MyAdapter adapter = new MyAdapter(getContext(),items) ;
+        layout.setAdapter(adapter);
 
+        //계좌 정보 리스트 adapter에 넘겨서 셋팅
 
-        //return inflater.inflate(R.layout.fragment_account, container, false);
         return fragmentAccountBinding.getRoot();
     }
 
-    class MyAdapter extends ArrayList<AccountBoxLayout>{
+    public class MyAdapter extends ArrayAdapter {
         Context context;
-        String head[];
-        String bank[];
-        String type[];
-        String money[];
-        String accountNumber[];
+        List list;
 
-        MyAdapter(Context con,String head[],String bank[],String type[],Double money[],String accountNumber[]){
-            //super(con, R.id.head_mark,R.id.textInput_bank,R.id.textInput_type,R.id.textView_Money,R.id.textInput_accountNumber);
+        public MyAdapter(Context con, ArrayList list) {
+            super(con, 0, list);
+            this.context = con;
+            this.list = list;
+        }
+        class ViewHolder {
+            public TextView textview_accountNum;
+            public TextView textview_bank;
+            public TextView textview_type;
+            public TextView textview_money;
+        }
+
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
+            final ViewHolder viewHolder;
+
+            if (convertView == null){
+                LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+                if(position == list.size()-1){
+                    convertView = layoutInflater.inflate(R.layout.fragment_goal, parent, false);
+                }else{
+                    convertView = layoutInflater.inflate(R.layout.account_box, parent, false);
+                }
+            }
+
+            viewHolder = new ViewHolder();
+            if(position == list.size()-1){
+
+            }else{
+                viewHolder.textview_accountNum = convertView.findViewById(R.id.accountNumber);
+                viewHolder.textview_bank = convertView.findViewById(R.id.bank);
+                viewHolder.textview_type = convertView.findViewById(R.id.type);
+                viewHolder.textview_money = convertView.findViewById(R.id.money);
+
+                viewHolder.textview_accountNum.setText("dd");
+                viewHolder.textview_bank.setText("dd");
+                viewHolder.textview_type.setText("dd");
+                viewHolder.textview_money.setText("dd");
+            }
+
+
+            return convertView;
+
         }
 
     }
+
 }
