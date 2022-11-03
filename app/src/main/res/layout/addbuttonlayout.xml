@@ -3,14 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:background="@drawable/roundsquare_layout">
 
-    <Button
-        android:id="@+id/add_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/circle"
-        android:text="+"
-        android:textSize="20dp"
-        android:layout_gravity="center"/>
+
 </FrameLayout>

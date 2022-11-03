@@ -107,7 +107,7 @@ public class GoalFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
-                        setLayout(false);
+                        //setLayout(false);
                     }
                 });
 

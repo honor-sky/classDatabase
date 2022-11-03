@@ -6,10 +6,17 @@
     android:background="@drawable/roundsquare_layout"
     android:gravity="center_horizontal"
     android:orientation="vertical">
+    <Button
+        android:id="@+id/cancle_btn_account"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="start"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:text="X"
+        android:textSize="20dp"
+        android:background="#0000ffff"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
 
     <TextView
         android:id="@+id/Title_account"
@@ -110,7 +117,7 @@
         android:layout_height="20dp" />
 
     <Button
-        android:id="@+id/button_register_goal"
+        android:id="@+id/button_register_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/roundsquare_button"

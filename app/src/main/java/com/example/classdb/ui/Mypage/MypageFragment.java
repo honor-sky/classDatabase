@@ -24,8 +24,7 @@ public class MypageFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MypageViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(MypageViewModel.class);
+        //MypageViewModel notificationsViewModel = new ViewModelProvider(this).get(MypageViewModel.class);
 
         fragmentMypageBinding = FragmentMypageBinding.inflate(inflater);
 
