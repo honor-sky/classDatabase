@@ -100,7 +100,6 @@ public class AccountFragment extends Fragment {
         adapter = new MyAdapter(getContext(),items) ;
         layout.setAdapter(adapter);
 
-
     }
 
     public class MyAdapter extends ArrayAdapter {

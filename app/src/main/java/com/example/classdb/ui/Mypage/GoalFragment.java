@@ -129,7 +129,6 @@ public class GoalFragment extends Fragment {
             fragmentGoalBinding.cancleButton.setVisibility(fragmentGoalBinding.cancleButton.GONE); //삭제 버튼 없애기
 
         }else{      //목표 설정 되어 있는 경우
-
             GoalBoxLayout goal_box = new GoalBoxLayout(getContext());
             FrameLayout layout = (FrameLayout)fragmentGoalBinding.addButtonLayoutContainer; //버튼 레이아웃을 담을 레이아웃
             layout.addView(goal_box);
@@ -138,6 +137,9 @@ public class GoalFragment extends Fragment {
 
         }
     }
+    private boolean getIsGoal(){
 
+        return true;
+    }
 
 }
